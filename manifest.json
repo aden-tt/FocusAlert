@@ -1,29 +1,48 @@
 {
     "manifest_version":2,
     "version":"1.0",
-    "name":"Test",
+    "name":"FocusAlert",
+    "description": "Notifies user when they've spent a large amount of time on specified websites.",
     "content_scripts":[
         {
             "matches":["<all_urls>"],
             "js":["main.js"]
         }
     ],
+
     "icons": {
-        "48": "icon-48.png",
-        "96": "icon-96.png"
+        "48": "icons/icon-48.png",
+        "96": "icons/icon-96.png"
     },
+
     "browser_action":{
         "default_icon":{
-            "19":"icon-19.png",
-            "38":"icon-38.png"
-        }
+            "19":"icons/icon-19.png",
+            "38":"icons/icon-38.png"
+        },
+        "default_title": "FocusAlert",
+        "default_popup": "popup/popup.html"
     },
+    
     "background":{
         "scripts":["background.js"]
     },
+
     "permissions":[
-        "tabs"
-    ]
+        "tabs",
+        "storage"
+    ],
+    
+    "options_ui": {
+        "open_in_tab": true,
+        "page": "options/options.html"
+    },
+    
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "addon@example.com"
+        }
+    }
 
 
   }
